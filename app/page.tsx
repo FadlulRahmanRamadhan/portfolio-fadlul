@@ -95,7 +95,7 @@ export default function Home() {
             Portofolio
           </h1>
 
-        <div className="flex gap-8 bg-black/40 px-8 py-3 rounded-2xl">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-6 bg-black/40 px-4 sm:px-8 py-3 rounded-2xl">
 
   <a
     href="#beranda"
@@ -138,109 +138,85 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
+          {/* Hero */}
       <section
         id="beranda"
-        className="min-h-screen flex items-center justify-center gap-24 px-24 pt-24"
+        className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 lg:gap-24 px-4 sm:px-8 md:px-16 lg:px-24 pt-24"
       >
-
-      <div
-  data-aos="fade-right"
-  className="max-w-xl"
->
-
-          <div className="flex items-center gap-4 bg-[#1a1a25] border border-gray-700 rounded-2xl p-4 w-fit mb-8">
-
-                  <img
-            src="/foto-wisuda.jpg"
-            alt="Avatar"
-            className="
-              w-12 h-12 rounded-lg object-cover
-              transition-all duration-500
-              hover:scale-125
-              hover:rotate-6
-              hover:shadow-[0_0_25px_rgba(168,85,247,0.7)]
-              cursor-pointer
-            "
-          />
-
+        {/* Bagian Kiri (Text & Tombol) */}
+        <div
+          data-aos="fade-right"
+          className="max-w-xl text-center md:text-left"
+        >
+          <div className="flex flex-col sm:flex-row items-center gap-4 bg-[#1a1a25] border border-gray-700 rounded-2xl p-4 w-fit mb-8 mx-auto md:mx-0">
+            <img
+              src="/foto-wisuda.jpg"
+              alt="Avatar"
+              className="w-12 h-12 rounded-lg object-cover transition-all duration-500 hover:scale-125 hover:rotate-6 hover:shadow-[0_0_25px_rgba(168,85,247,0.7)] cursor-pointer"
+            />
             <div>
               <p className="text-purple-400 text-xl">❝</p>
-
               <p className="text-gray-300 italic text-sm">
                 "Code built with persistence, designed for performance."
               </p>
             </div>
-
           </div>
 
-                      <h1
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="text-4xl font-bold mb-6"
->
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-3xl sm:text-4xl font-bold mb-6"
+          >
             Hi, I'm{" "}
-            <span className="text-purple-500">
-              Fadlul Rahman Ramadhan
-            </span>
+            <span className="text-purple-500">Fadlul Rahman Ramadhan</span>
           </h1>
 
-                    <p
+          <p
             data-aos="fade-up"
             data-aos-delay="400"
-            className="text-2xl text-gray-300 mb-4"
->
+            className="text-xl sm:text-2xl text-gray-300 mb-4"
+          >
             Interested in Web Development • Mobile Development • IT
           </p>
 
           <p className="text-purple-400 mb-8">
-            Computer Systems Graduate — STMIK Jaya Nusa 
+            Computer Systems Graduate — STMIK Jaya Nusa
           </p>
 
-              <div
-                data-aos="zoom-in"
-                data-aos-delay="600"
-                className="flex gap-4"
-              >
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="600"
+            className="flex flex-wrap justify-center md:justify-start gap-4"
+          >
+            <a
+              href="/cv-fadlul.pdf"
+              download
+              className="bg-purple-600 px-6 py-3 rounded-xl hover:bg-purple-700 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+            >
+              Download CV
+            </a>
 
- <a
-  href="/cv-fadlul.pdf"
-  download
-  className="bg-purple-600 px-6 py-3 rounded-xl hover:bg-purple-700 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
->
-  Download CV
-</a>
+            <button
+              onClick={() => {
+                document
+                  .getElementById("proyek")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="bg-gray-700 px-6 py-3 rounded-xl hover:bg-gray-600 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+            >
+              View Projects
+            </button>
+          </div>
+        </div>
 
-  <button
-  onClick={() => {
-    document
-      .getElementById("proyek")
-      ?.scrollIntoView({ behavior: "smooth" });
-  }}
-  className="bg-gray-700 px-6 py-3 rounded-xl hover:bg-gray-600 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
->
-  View Projects
-</button>
-
-</div>
-
-                                          </div><img
-                                    data-aos="fade-left"
-                                    data-aos-delay="300"
-                                    src="/foto-wisuda.jpg"
-                                    alt="Foto Wisuda"
-                                    className="
-                                      w-[350px] h-[500px]
-                                      object-cover
-                                      rounded-[180px]
-                                      border-4 border-purple-500
-                                      transition-all duration-500
-                                      hover:scale-105
-                                      hover:-translate-y-3
-                                      hover:rotate-2
-                                      hover:shadow-[0_0_50px_rgba(168,85,247,0.8)]
-                                      cursor-pointer
-                                    "
-                                  />
+        {/* Bagian Kanan (Foto Wisuda) */}
+        <img
+          data-aos="fade-left"
+          data-aos-delay="300"
+          src="/foto-wisuda.jpg"
+          alt="Foto Wisuda"
+          className="w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-96 lg:w-[350px] lg:h-[500px] object-cover rounded-[180px] border-4 border-purple-500 transition-all duration-500 hover:scale-105 hover:-translate-y-3 hover:rotate-2 hover:shadow-[0_0_50px_rgba(168,85,247,0.8)] cursor-pointer"
+        />
       </section>
 
       {/* About */}
@@ -249,8 +225,8 @@ export default function Home() {
       <section
   id="tentang"
   data-aos="fade-up"
-  className="min-h-screen px-24 py-20 flex flex-col justify-center"
->
+   className="min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 md:py-20 flex flex-col justify-center">
+
   <h2 className="text-5xl font-bold text-center mb-12">
     More About Me
   </h2>
@@ -279,7 +255,7 @@ export default function Home() {
       innovative digital solutions.
     </p>
 
-  <div className="flex justify-between items-end mt-8">
+ <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-4 mt-8">
 
       <img
         src="/foto-wisuda.jpg"
@@ -334,7 +310,7 @@ export default function Home() {
          Kombinasi teknologi yang saya gunakan membantu menciptakan solusi digital yang scalable, modern, dan berfokus pada performa serta pengalaman pengguna.
         </p>
 
-        <div className="grid grid-cols-3 gap-6">
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
           {skills.map((skill, index) => (
 
@@ -388,7 +364,7 @@ duration-300"
     Berikut beberapa proyek yang telah saya kembangkan, yang berfokus pada aplikasi web, pengembangan aplikasi mobile, manajemen basis data, dan solusi berbasis IoT.
   </p>
 
-  <div className="grid grid-cols-4 gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
 
     {/* Project 1 */}
 <div
@@ -589,7 +565,7 @@ duration-300"
     </p>
   </div>
 
-  <div className="grid grid-cols-2 gap-6 max-w-6xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
     {/* Informasi kontak */}
     <div className="space-y-6">
 
@@ -706,8 +682,8 @@ duration-300"
 <footer className="py-10 border-t border-gray-800 mt-20">
 
   {/* Menu Footer */}
-  <div className="flex justify-center gap-8 mb-8 text-gray-400">
-
+  <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-8 text-gray-400">
+    
     <a href="#beranda" className="hover:text-purple-500
 hover:scale-125
 hover:-translate-y-1
