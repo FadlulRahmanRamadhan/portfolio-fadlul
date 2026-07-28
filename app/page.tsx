@@ -143,7 +143,12 @@ export default function Home() {
           data-aos="fade-right"
           className="max-w-xl text-center md:text-left"
         >
-          <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 w-fit mb-8 mx-auto md:mx-0 shadow-[0_0_30px_rgba(168,85,247,0.1)]">
+          {/* Quote Card - dengan AOS */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 w-fit mb-8 mx-auto md:mx-0 shadow-[0_0_30px_rgba(168,85,247,0.1)]"
+          >
             <img
               src="/foto-wisuda.jpg"
               alt="Avatar"
@@ -157,6 +162,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Heading */}
           <h1
             data-aos="fade-up"
             data-aos-delay="200"
@@ -168,6 +174,7 @@ export default function Home() {
             </span>
           </h1>
 
+          {/* Subtitle */}
           <p
             data-aos="fade-up"
             data-aos-delay="400"
@@ -176,10 +183,16 @@ export default function Home() {
             Interested in Web Development • Mobile Development • IT
           </p>
 
-          <p className="text-purple-400 mb-6 sm:mb-8">
+          {/* Graduate Text - dengan AOS */}
+          <p
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className="text-purple-400 mb-6 sm:mb-8"
+          >
             Computer Systems Graduate — STMIK Jaya Nusa
           </p>
 
+          {/* Buttons */}
           <div
             data-aos="zoom-in"
             data-aos-delay="600"
@@ -206,6 +219,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Foto - dengan AOS */}
         <img
           data-aos="fade-left"
           data-aos-delay="300"
@@ -215,7 +229,7 @@ export default function Home() {
         />
       </section>
 
-      {/* About - Glass Card */}
+      {/* About */}
       <section
         id="tentang"
         data-aos="fade-up"
@@ -273,7 +287,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills - Glass Cards */}
+      {/* Skills */}
       <section
         id="skill"
         data-aos="zoom-in"
@@ -297,6 +311,8 @@ export default function Home() {
           {skills.map((skill, index) => (
             <div
               key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 sm:p-6 hover:-translate-y-2 hover:scale-105 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
             >
               <div className="text-purple-400">{skill.icon}</div>
@@ -313,7 +329,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects - Glass Cards with Gradient Border */}
+      {/* Projects */}
       <section
         id="proyek"
         className="min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20"
@@ -333,67 +349,152 @@ export default function Home() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {[1, 2, 3, 4].map((project) => (
-            <div
-              key={project}
-              data-aos="fade-up"
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
-            >
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  {project === 1 && "Mini Cashflow Dashboard"}
-                  {project === 2 && "BLE Attendance System"}
-                  {project === 3 && "Parking Management System"}
-                  {project === 4 && "News Portal"}
-                </h3>
-                <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
-                  Project
-                </span>
-              </div>
-
-              <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
-                {project === 1 && "A web-based financial management application designed to record income and expenses, generate reports, and provide transaction summaries."}
-                {project === 2 && "A smart attendance system developed as a final project by integrating Bluetooth Low Energy (BLE) technology with a WhatsApp Bot."}
-                {project === 3 && "A web-based parking management system built using Laravel to manage vehicle entry and exit records, parking history, and automatic fee calculations."}
-                {project === 4 && "A dynamic news portal website featuring article management, category organization, and an administrative dashboard."}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {project === 1 && (
-                  <>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">PHP</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">MySQL</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">Bootstrap</span>
-                  </>
-                )}
-                {project === 2 && (
-                  <>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">React Native</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">Firebase</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">BLE</span>
-                  </>
-                )}
-                {project === 3 && (
-                  <>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">Laravel</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">MySQL</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">Tailwind</span>
-                  </>
-                )}
-                {project === 4 && (
-                  <>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">PHP</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">MySQL</span>
-                    <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">JavaScript</span>
-                  </>
-                )}
-              </div>
+          {/* Project 1 */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
+          >
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Mini Cashflow Dashboard
+              </h3>
+              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
+                Project
+              </span>
             </div>
-          ))}
+
+            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
+              A web-based financial management application designed to record
+              income and expenses, generate reports, and provide transaction
+              summaries. The system helps users monitor cash flow efficiently
+              through an intuitive dashboard and structured data management.
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                PHP
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                MySQL
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                Bootstrap
+              </span>
+            </div>
+          </div>
+
+          {/* Project 2 */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
+          >
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                BLE Attendance System
+              </h3>
+              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
+                Project
+              </span>
+            </div>
+
+            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
+              A smart attendance system developed as a final project by
+              integrating Bluetooth Low Energy (BLE) technology with a WhatsApp
+              Bot. The application verifies student locations automatically and
+              sends notifications in real time to improve attendance accuracy
+              and monitoring.
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                React Native
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                Firebase
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                BLE
+              </span>
+            </div>
+          </div>
+
+          {/* Project 3 */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
+          >
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Parking Management System
+              </h3>
+              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
+                Project
+              </span>
+            </div>
+
+            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
+              A web-based parking management system built using Laravel to
+              manage vehicle entry and exit records, parking history, and
+              automatic fee calculations. The application improves operational
+              efficiency through structured data processing and reporting
+              features.
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                Laravel
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                MySQL
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                Tailwind
+              </span>
+            </div>
+          </div>
+
+          {/* Project 4 */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
+          >
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                News Portal
+              </h3>
+              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
+                Project
+              </span>
+            </div>
+
+            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
+              A dynamic news portal website featuring article management,
+              category organization, and an administrative dashboard. The
+              platform allows administrators to publish and manage content
+              efficiently while providing users with an organized reading
+              experience.
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                PHP
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                MySQL
+              </span>
+              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
+                JavaScript
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact - Glass Cards */}
+      {/* Contact */}
       <section
         id="kontak"
         className="px-4 sm:px-8 md:px-12 lg:px-24 py-12 sm:py-16 md:py-24"
@@ -416,22 +517,40 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           <div className="space-y-6">
-            <div className="bg-white/5 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300 cursor-pointer">
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">Email</h3>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="100"
+              className="bg-white/5 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300 cursor-pointer"
+            >
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
+                Email
+              </h3>
               <p className="text-gray-400 text-sm sm:text-base">
                 rahmanfadlul229@gmail.com
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300 cursor-pointer">
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">GitHub</h3>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="200"
+              className="bg-white/5 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300 cursor-pointer"
+            >
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
+                GitHub
+              </h3>
               <p className="text-gray-400 text-sm sm:text-base">
                 github.com/FadlulRahmanRamadhan
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300 cursor-pointer">
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">Education</h3>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="300"
+              className="bg-white/5 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300 cursor-pointer"
+            >
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
+                Education
+              </h3>
               <p className="text-gray-400 text-sm sm:text-base">
                 S1 Sistem Komputer
                 <br />
@@ -441,7 +560,11 @@ export default function Home() {
           </div>
 
           {/* Form Contact */}
-          <div className="bg-white/5 backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300">
+          <div
+            data-aos="fade-left"
+            data-aos-delay="200"
+            className="bg-white/5 backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
+          >
             <form
               action="https://formspree.io/f/mojgrnnv"
               method="POST"
