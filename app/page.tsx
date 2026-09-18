@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -76,6 +76,13 @@ const skills = [
 ];
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState<{
+    title: string;
+    image: string;
+    description: string;
+    tech: string[];
+  } | null>(null);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -84,6 +91,7 @@ export default function Home() {
   }, []);
 
   return (
+
     <main className="bg-[#0a0a1a] text-white overflow-x-hidden relative">
       {/* Background Gradient Orbs */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -137,7 +145,7 @@ export default function Home() {
       {/* Hero */}
       <section
         id="beranda"
-        className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 lg:gap-24 px-4 sm:px-8 md:px-16 lg:px-24 pt-20 sm:pt-24"
+        className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 lg:gap-24 px-4 sm:px-8 md:px-16 lg:px-24 pt-36 sm:pt-28 md:pt-24"
       >
         <div
           data-aos="fade-right"
@@ -147,7 +155,7 @@ export default function Home() {
           <div
             data-aos="fade-up"
             data-aos-delay="100"
-            className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 w-fit mb-8 mx-auto md:mx-0 shadow-[0_0_30px_rgba(168,85,247,0.1)]"
+            className="flex flex-col sm:flex-row items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 w-full sm:w-fit max-w-full mb-8 mx-auto md:mx-0 shadow-[0_0_30px_rgba(168,85,247,0.1)]"
           >
             <img
               src="/foto-wisuda.jpg"
@@ -330,169 +338,425 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section
-        id="proyek"
-        className="min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20"
-      >
-        <p className="text-purple-400 text-sm uppercase text-center mb-2">
-          Portofolio
+<section
+  id="proyek"
+  className="min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20"
+>
+  <p className="text-purple-400 text-sm uppercase text-center mb-2">
+    Portofolio
+  </p>
+
+  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4 sm:mb-6">
+    My Projects
+  </h2>
+
+  <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10 sm:mb-16 text-sm sm:text-base px-4">
+    Berikut beberapa proyek yang telah saya kembangkan, mencakup website,
+    aplikasi manajemen, aplikasi mobile, dan sistem berbasis teknologi modern.
+  </p>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+
+    {/* ================= PROJECT 1 ================= */}
+    <div
+      data-aos="fade-up"
+      data-aos-delay="100"
+      className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(168,85,247,0.18)] transition-all duration-300"
+    >
+      <div className="relative h-52 overflow-hidden bg-black/20">
+        <img
+          src="/projects/jaya-home-inovasi.png"
+          alt="Jaya Home Inovasi"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <span className="absolute top-4 right-4 border border-green-500/50 bg-black/60 backdrop-blur-md text-green-400 text-xs px-3 py-1.5 rounded-full">
+          ● Online
+        </span>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+          Jaya Home Inovasi
+        </h3>
+
+        <p className="text-gray-400 leading-6 mb-5 text-sm sm:text-base">
+          Website perusahaan Jaya Home Inovasi yang menampilkan informasi
+          perusahaan, produk, layanan, dan informasi bisnis secara profesional.
         </p>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4 sm:mb-6">
-          My Projects
-        </h2>
-
-        <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10 sm:mb-16 text-sm sm:text-base px-4">
-          Berikut beberapa proyek yang telah saya kembangkan, yang berfokus pada
-          aplikasi web, pengembangan aplikasi mobile, manajemen basis data, dan
-          solusi berbasis IoT.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {/* Project 1 */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
-          >
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
-              <h3 className="text-xl sm:text-2xl font-bold text-white">
-                Mini Cashflow Dashboard
-              </h3>
-              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
-                Project
-              </span>
-            </div>
-
-            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
-              A web-based financial management application designed to record
-              income and expenses, generate reports, and provide transaction
-              summaries. The system helps users monitor cash flow efficiently
-              through an intuitive dashboard and structured data management.
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                PHP
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                MySQL
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                Bootstrap
-              </span>
-            </div>
-          </div>
-
-          {/* Project 2 */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
-          >
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
-              <h3 className="text-xl sm:text-2xl font-bold text-white">
-                BLE Attendance System
-              </h3>
-              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
-                Project
-              </span>
-            </div>
-
-            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
-              A smart attendance system developed as a final project by
-              integrating Bluetooth Low Energy (BLE) technology with a WhatsApp
-              Bot. The application verifies student locations automatically and
-              sends notifications in real time to improve attendance accuracy
-              and monitoring.
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                React Native
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                Firebase
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                BLE
-              </span>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
-          >
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
-              <h3 className="text-xl sm:text-2xl font-bold text-white">
-                Parking Management System
-              </h3>
-              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
-                Project
-              </span>
-            </div>
-
-            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
-              A web-based parking management system built using Laravel to
-              manage vehicle entry and exit records, parking history, and
-              automatic fee calculations. The application improves operational
-              efficiency through structured data processing and reporting
-              features.
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                Laravel
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                MySQL
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                Tailwind
-              </span>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="400"
-            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 sm:p-6 hover:border-purple-500/50 hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] transition-all duration-300"
-          >
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
-              <h3 className="text-xl sm:text-2xl font-bold text-white">
-                News Portal
-              </h3>
-              <span className="border border-purple-500/50 text-purple-400 text-xs px-3 sm:px-4 py-1 rounded-full">
-                Project
-              </span>
-            </div>
-
-            <p className="text-gray-400 leading-6 sm:leading-8 mb-4 sm:mb-6 text-sm sm:text-base">
-              A dynamic news portal website featuring article management,
-              category organization, and an administrative dashboard. The
-              platform allows administrators to publish and manage content
-              efficiently while providing users with an organized reading
-              experience.
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                PHP
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                MySQL
-              </span>
-              <span className="border border-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm text-gray-300">
-                JavaScript
-              </span>
-            </div>
-          </div>
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            Laravel
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            PHP
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            MySQL
+          </span>
         </div>
-      </section>
+
+        <a
+          href="https://jayahomeinovasi.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-3 rounded-xl hover:scale-[1.02] transition-all duration-300 text-sm font-medium"
+        >
+          🌐 Lihat Website
+        </a>
+      </div>
+    </div>
+
+
+    {/* ================= PROJECT 2 ================= */}
+    <div
+      data-aos="fade-up"
+      data-aos-delay="200"
+      className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(168,85,247,0.18)] transition-all duration-300"
+    >
+      <div className="relative h-52 overflow-hidden bg-black/20">
+        <img
+          src="/projects/stock-barang.png"
+          alt="Stock Barang Jaya Home Inovasi"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <span className="absolute top-4 right-4 border border-green-500/50 bg-black/60 backdrop-blur-md text-green-400 text-xs px-3 py-1.5 rounded-full">
+          ● Online
+        </span>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+          Stock Barang Jaya Home Inovasi
+        </h3>
+
+        <p className="text-gray-400 leading-6 mb-5 text-sm sm:text-base">
+          Aplikasi manajemen stok barang untuk mengelola barang masuk,
+          barang keluar, stok akhir, serta laporan persediaan secara
+          terstruktur.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            Laravel
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            PHP
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            MySQL
+          </span>
+        </div>
+
+        <a
+          href="https://jayahomeinovasi.com/stock"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-3 rounded-xl hover:scale-[1.02] transition-all duration-300 text-sm font-medium"
+        >
+          📦 Buka Aplikasi
+        </a>
+      </div>
+    </div>
+
+
+    {/* ================= PROJECT 3 ================= */}
+    <div
+      data-aos="fade-up"
+      data-aos-delay="300"
+      className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(168,85,247,0.18)] transition-all duration-300"
+    >
+      <div className="relative h-52 overflow-hidden bg-black/20">
+        <img
+          src="/projects/cashflow.png"
+          alt="Mini Cashflow Dashboard"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <span className="absolute top-4 right-4 border border-purple-500/50 bg-black/60 backdrop-blur-md text-purple-400 text-xs px-3 py-1.5 rounded-full">
+          Project
+        </span>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+          Mini Cashflow Dashboard
+        </h3>
+
+        <p className="text-gray-400 leading-6 mb-5 text-sm sm:text-base">
+          Aplikasi web untuk mencatat pemasukan dan pengeluaran, membuat
+          laporan, serta menampilkan ringkasan transaksi melalui dashboard.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            PHP
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            MySQL
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            Bootstrap
+          </span>
+        </div>
+
+        <button
+          onClick={() =>
+            setSelectedProject({
+              title: "Mini Cashflow Dashboard",
+              image: "/projects/cashflow.png",
+              description:
+                "A web-based financial management application designed to record income and expenses, generate reports, and provide transaction summaries. The system helps users monitor cash flow efficiently through an intuitive dashboard and structured data management.",
+              tech: ["PHP", "MySQL", "Bootstrap"],
+            })
+          }
+          className="flex items-center justify-center w-full border border-purple-500/50 text-purple-400 px-4 py-3 rounded-xl hover:bg-purple-500/10 hover:scale-[1.02] transition-all duration-300 text-sm font-medium"
+        >
+          🔍 Lihat Detail
+        </button>
+      </div>
+    </div>
+
+
+    {/* ================= PROJECT 4 ================= */}
+    <div
+      data-aos="fade-up"
+      data-aos-delay="400"
+      className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(168,85,247,0.18)] transition-all duration-300"
+    >
+      <div className="relative h-52 overflow-hidden bg-black/20">
+        <img
+          src="/projects/ble-attendance.png"
+          alt="BLE Attendance System"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <span className="absolute top-4 right-4 border border-purple-500/50 bg-black/60 backdrop-blur-md text-purple-400 text-xs px-3 py-1.5 rounded-full">
+          Project
+        </span>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+          BLE Attendance System
+        </h3>
+
+        <p className="text-gray-400 leading-6 mb-5 text-sm sm:text-base">
+          Sistem absensi pintar yang mengintegrasikan Bluetooth Low Energy
+          (BLE) dengan WhatsApp Bot untuk verifikasi lokasi mahasiswa dan
+          pengiriman notifikasi.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            React Native
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            Firebase
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            BLE
+          </span>
+        </div>
+
+        <button
+          onClick={() =>
+            setSelectedProject({
+              title: "BLE Attendance System",
+              image: "/projects/ble-attendance.png",
+              description:
+                "A smart attendance system developed as a final project by integrating Bluetooth Low Energy (BLE) technology with a WhatsApp Bot. The application verifies student locations automatically and sends notifications in real time to improve attendance accuracy and monitoring.",
+              tech: ["React Native", "Firebase", "BLE"],
+            })
+          }
+          className="flex items-center justify-center w-full border border-purple-500/50 text-purple-400 px-4 py-3 rounded-xl hover:bg-purple-500/10 hover:scale-[1.02] transition-all duration-300 text-sm font-medium"
+        >
+          🔍 Lihat Detail
+        </button>
+      </div>
+    </div>
+
+
+    {/* ================= PROJECT 5 ================= */}
+    <div
+      data-aos="fade-up"
+      data-aos-delay="500"
+      className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(168,85,247,0.18)] transition-all duration-300"
+    >
+      <div className="relative h-52 overflow-hidden bg-black/20">
+        <img
+          src="/projects/parking.png"
+          alt="Parking Management System"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <span className="absolute top-4 right-4 border border-purple-500/50 bg-black/60 backdrop-blur-md text-purple-400 text-xs px-3 py-1.5 rounded-full">
+          Project
+        </span>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+          Parking Management System
+        </h3>
+
+        <p className="text-gray-400 leading-6 mb-5 text-sm sm:text-base">
+          Sistem manajemen parkir berbasis web untuk mengelola kendaraan
+          masuk dan keluar, riwayat parkir, serta perhitungan biaya secara
+          otomatis.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            Laravel
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            MySQL
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            Tailwind
+          </span>
+        </div>
+
+        <button
+          onClick={() =>
+            setSelectedProject({
+              title: "Parking Management System",
+              image: "/projects/parking.png",
+              description:
+                "A web-based parking management system built using Laravel to manage vehicle entry and exit records, parking history, and automatic fee calculations. The application improves operational efficiency through structured data processing and reporting features.",
+              tech: ["Laravel", "MySQL", "Tailwind"],
+            })
+          }
+          className="flex items-center justify-center w-full border border-purple-500/50 text-purple-400 px-4 py-3 rounded-xl hover:bg-purple-500/10 hover:scale-[1.02] transition-all duration-300 text-sm font-medium"
+        >
+          🔍 Lihat Detail
+        </button>
+      </div>
+    </div>
+
+
+    {/* ================= PROJECT 6 ================= */}
+    <div
+      data-aos="fade-up"
+      data-aos-delay="600"
+      className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(168,85,247,0.18)] transition-all duration-300"
+    >
+      <div className="relative h-52 overflow-hidden bg-black/20">
+        <img
+          src="/projects/news-portal.png"
+          alt="News Portal"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <span className="absolute top-4 right-4 border border-purple-500/50 bg-black/60 backdrop-blur-md text-purple-400 text-xs px-3 py-1.5 rounded-full">
+          Project
+        </span>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+          News Portal
+        </h3>
+
+        <p className="text-gray-400 leading-6 mb-5 text-sm sm:text-base">
+          Dynamic news portal dengan fitur pengelolaan artikel, kategori,
+          serta dashboard administrator untuk mengelola dan menerbitkan
+          konten.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            PHP
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            MySQL
+          </span>
+          <span className="border border-white/20 px-3 py-1 rounded-full text-xs text-gray-300">
+            JavaScript
+          </span>
+        </div>
+
+        <button
+          onClick={() =>
+            setSelectedProject({
+              title: "News Portal",
+              image: "/projects/news-portal.png",
+              description:
+                "A dynamic news portal website featuring article management, category organization, and an administrative dashboard. The platform allows administrators to publish and manage content efficiently while providing users with an organized reading experience.",
+              tech: ["PHP", "MySQL", "JavaScript"],
+            })
+          }
+          className="flex items-center justify-center w-full border border-purple-500/50 text-purple-400 px-4 py-3 rounded-xl hover:bg-purple-500/10 hover:scale-[1.02] transition-all duration-300 text-sm font-medium"
+        >
+          🔍 Lihat Detail
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+  {/* ================= MODAL DETAIL ================= */}
+  {selectedProject && (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 bg-black/80 backdrop-blur-sm"
+      onClick={() => setSelectedProject(null)}
+    >
+      <div
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#111122] border border-white/10 rounded-3xl shadow-[0_0_80px_rgba(168,85,247,0.25)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={() => setSelectedProject(null)}
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 border border-white/10 text-white text-xl hover:bg-red-500/80 transition-all"
+        >
+          ×
+        </button>
+
+        <img
+          src={selectedProject.image}
+          alt={selectedProject.title}
+          className="w-full h-56 sm:h-72 object-cover"
+        />
+
+        <div className="p-6 sm:p-8">
+          <p className="text-purple-400 text-sm uppercase mb-2">
+            Project Detail
+          </p>
+
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            {selectedProject.title}
+          </h3>
+
+          <p className="text-gray-400 leading-7 mb-6">
+            {selectedProject.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-6">
+            {selectedProject.tech.map((technology: string) => (
+              <span
+                key={technology}
+                className="border border-purple-500/30 bg-purple-500/5 px-3 py-1.5 rounded-full text-sm text-purple-300"
+              >
+                {technology}
+              </span>
+            ))}
+          </div>
+
+          <button
+            onClick={() => setSelectedProject(null)}
+            className="w-full border border-white/10 bg-white/5 text-gray-300 px-4 py-3 rounded-xl hover:bg-white/10 transition-all"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+  )}
+</section>
 
       {/* Contact */}
       <section
@@ -525,7 +789,7 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
                 Email
               </h3>
-              <p className="text-gray-400 text-sm sm:text-base">
+              <p className="text-gray-400 text-sm sm:text-base break-words">
                 rahmanfadlul229@gmail.com
               </p>
             </div>
@@ -538,7 +802,7 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
                 GitHub
               </h3>
-              <p className="text-gray-400 text-sm sm:text-base">
+              <p className="text-gray-400 text-sm sm:text-base break-words">
                 github.com/FadlulRahmanRamadhan
               </p>
             </div>
